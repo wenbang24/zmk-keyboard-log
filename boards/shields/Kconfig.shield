@@ -1,0 +1,2 @@
+config SHEILD_LOG
+    def_bool $(shields_list_contains,log)

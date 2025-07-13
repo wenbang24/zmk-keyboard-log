@@ -1,0 +1,6 @@
+if SHIELD_LOG
+
+config ZMK_KEYBOARD_NAME
+    default "Log"
+
+endif
