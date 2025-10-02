@@ -8,29 +8,45 @@
         default_layer {
             display-name = "QWERTY";
             bindings = <
-                &kp TAB   &kp Q     &kp W    &kp E     &kp R    &kp T    &kp Y   &kp U   &kp I      &kp O    &kp P     &kp BSPC
-                &kp ESC   &kp A     &kp S    &kp D     &kp F    &kp G    &kp H   &kp J   &kp K      &kp L    &kp SEMI  &kp SQT
-                &kp LSHFT &kp Z     &kp X    &kp C     &kp V    &kp B    &kp N   &kp M   &kp COMMA  &kp DOT  &kp SLASH &kp RSHFT
-                &kp CAPS  &kp LCTRL &kp LALT &kp LGUI  &mo 1    &kp SPC  &kp SPC &mo 2   &kp LEFT   &kp DOWN &kp UP    &kp RIGHT
+                &kp ESC   &kp Q        &kp W    &kp E       &kp R       &kp T     &kp Y   &kp U       &kp I       &kp O       &kp P         &kp BSPC
+                &kp TAB   &mt LCTRL A  &LALT S  &mt LGUI D  &mt LSFT F  &kp G     &kp H   &mt RSFT J  &mt RGUI K  &mt RALT L  &mt RCTL SQT  &kp BSPC
+                &kp LSHFT &kp Z        &kp X    &kp C       &kp V       &kp B     &kp N   &kp M       &kp COMMA   &kp DOT     &kp SLASH     &kp BSPC
+                &kp CAPS  &kp LCTRL    &kp LALT &kp LGUI    &lt 1 TAB   &kp BSPC  &kp SPC &lt 2 ENTER &kp LEFT    &kp DOWN    &kp UP        &kp RIGHT
             >;
         };
         lower {
             display-name = "Lower";
             bindings = <
-                &kp TILDE      &kp EXCL &kp AT  &kp HASH &kp DLLR &kp PRCNT &kp CARET &kp AMPS  &kp STAR   &kp LPAR &kp RPAR   &trans
-                &trans         &kp F1   &kp F2  &kp F3   &kp F4   &kp F5    &kp F6    &kp UNDER &kp PLUS   &kp LBRC &kp RBRC   &kp PIPE
-                &trans         &kp F7   &kp F8  &kp F9   &kp F10  &kp F11   &kp F12   &none     &none      &none    &none      &trans
-                &studio_unlock &trans   &trans  &trans   &trans   &trans    &trans    &trans    &kp C_NEXT &kp C_PP &kp C_PREV &trans
+                &kp TILDE      &kp EXCL &kp AT  &kp HASH  &kp DLLR &kp PRCNT &kp CARET       &kp AMPS  &kp STAR   &kp LPAR &kp RPAR   &trans
+                &trans         &none    &none   &kp UNDER &kp PLUS &kp LBRC  &kp RBRC        &kp LEFT  &kp DOWN   &kp UP   &kp RIGHT  &trans
+                &trans         &none    &none   &none     &kp PIPE &kp C_VOL_DN &kp C_VOL_UP &kp COLON &kp LT     &kp GT   &kp QMARK  &kp DQT
+                &studio_unlock &trans   &trans  &trans    &trans   &trans    &trans          &trans    &kp C_NEXT &kp C_PP &kp C_PREV &trans
             >;
         };
         raise {
             display-name = "Raise";
             bindings = <
-                &kp GRAVE      &kp N1   &kp N2  &kp N3   &kp N4   &kp N5   &kp N6   &kp N7    &kp N8     &kp N9   &kp N0     &trans
-                &trans         &kp F1   &kp F2  &kp F3   &kp F4   &kp F5   &kp F6   &kp MINUS &kp EQUAL  &kp LBKT &kp RBKT   &kp BSLH
-                &trans         &kp F7   &kp F8  &kp F9   &kp F10  &kp F11  &kp F12  &none     &none      &none    &none      &trans
-                &studio_unlock &trans   &trans  &trans   &trans   &trans   &trans   &trans    &kp C_NEXT &kp C_PP &kp C_PREV &trans
+                &kp GRAVE      &kp N1   &kp N2   &kp N3    &kp N4    &kp N5       &kp N6       &kp N7    &kp N8     &kp N9   &kp N0     &trans
+                &trans         &none    &none    &kp MINUS &kp EQUAL &kp LBKT     &kp RBKT     &kp LEFT  &kp DOWN   &kp UP   &kp RIGHT  &trans
+                &trans         &none    &none    &none     &kp BSLH  &kp C_VOL_DN &kp C_VOL_UP &kp SEMI  &kp COMMA  &kp DOT  &kp SLASH  &kp SQT
+                &studio_unlock &trans   &trans   &trans    &trans    &trans       &trans       &trans    &kp C_NEXT &kp C_PP &kp C_PREV &trans
             >;
+        };
+        adjust {
+            display-name = "Adjust";
+            bindings = <
+                &kp F1  &kp F2  &kp F3  &kp F4  &none &kp C_BRI_DN &kp C_BRI_UP &none     &none  &none  &none  &none
+                &kp F5  &kp F6  &kp F7  &kp F8  &none &kp C_VOL_DN &kp C_VOL_UP &kp LEFT  &kp DOWN   &kp UP   &kp RIGHT  &trans
+                &kp F9  &kp F10 &kp F11 &kp F12 &none &none        &none        &trans    &kp C_NEXT &kp C_PP &kp C_PREV &trans
+                &studio_unlock &trans &trans &trans &trans &trans &trans &trans &none &none &none &none
+            >;
+        }
+    };
+    conditional_layers {
+        compatible = "zmk,conditional-layers";
+        tri_layer {
+            if-layers = <1 2>;
+            then-layer = <3>;
         };
     };
  };
