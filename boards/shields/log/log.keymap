@@ -41,7 +41,7 @@
                 &kp F9         &kp F10 &kp F11 &kp F12 &none  &none        &none        &trans    &kp C_NEXT &kp C_PP &kp C_PREV &trans
                 &studio_unlock &trans  &trans  &trans  &trans &bt BT_NXT   &bt BT_CLR   &trans    &none      &none    &none      &none
             >;
-        }
+        };
     };
     conditional_layers {
         compatible = "zmk,conditional-layers";
